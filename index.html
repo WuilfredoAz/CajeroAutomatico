@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>Cajero Automático 3.0</title>
         <!-- <link rel="stylesheet" href="/" /> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 
         <style>
             * { box-sizing: border-box; }
@@ -29,13 +29,25 @@
             {
                 height: 100%;
                 display: grid;
-                grid-template: repeat(2, 1fr) / 1fr;
+                grid-template: 310px 1fr / 1fr;
             }
 
             .container__right
             {
                 overflow-y: scroll;
                 padding: 20px;
+            }
+
+
+            .atm
+            {
+                height: 200px;
+            }
+
+
+            .stats__title
+            {
+                margin-top: 0;
             }
 
 
@@ -50,6 +62,7 @@
             .widget__ico
             {
                 margin-right: 20px;
+                height: 30px;
             }
 
             .widget__graph
@@ -122,7 +135,7 @@
             <div class="container__left">
                 <div class="container__info">
                     <p>
-                        <img src="img/cajero.gif" alt="cajero" />
+                        <img class="atm" src="img/cajero.gif" alt="cajero" />
                     </p>
                     <p>
                         <input type="number" id="cantidad" />
@@ -131,8 +144,12 @@
                     <p id="informacion"></p>
                 </div>
                 <div class="container__stats">
-                    <h2>Cantidad de dinero</h2>
+                    <h2 class="stats__title">Cantidad de dinero</h2>
                     <div class="widget">
+                        <div class="widget__component">
+                            <img class="widget__ico" src="img/100.png">
+                            <div class="widget__graph" id="js-graph-cien"></div>
+                        </div>
                         <div class="widget__component">
                             <img class="widget__ico" src="img/50.png">
                             <div class="widget__graph" id="js-graph-cincuenta"></div>
@@ -144,6 +161,14 @@
                         <div class="widget__component">
                             <img class="widget__ico" src="img/10.png">
                             <div class="widget__graph" id="js-graph-diez"></div>
+                        </div>
+                        <div class="widget__component">
+                            <img class="widget__ico" src="img/5.png">
+                            <div class="widget__graph" id="js-graph-cinco"></div>
+                        </div>
+                        <div class="widget__component">
+                            <img class="widget__ico" src="img/1.png">
+                            <div class="widget__graph" id="js-graph-uno"></div>
                         </div>
                     </div>
                 </div>

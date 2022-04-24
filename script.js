@@ -15,9 +15,12 @@ var graficoBillete = [];
 var acumulable = [];
 
 // capturo en una variable alos graficos de los billetes
+var graph100 = document.getElementById("js-graph-cien");
 var graph50 = document.getElementById("js-graph-cincuenta");
 var graph20 = document.getElementById("js-graph-veinte");
 var graph10 = document.getElementById("js-graph-diez");
+var graph5 = document.getElementById("js-graph-cinco");
+var graph1 = document.getElementById("js-graph-uno");
 
 var cIterador = 0;
 var contenedorDeImagenes = document.querySelector(".js-container-history");
@@ -36,15 +39,21 @@ class Billete
 }
 
 // Lleno la caja con los billetes
-caja.push(new Billete(4, 50));
-caja.push(new Billete(3, 20));
-caja.push(new Billete(2, 10));
+caja.push(new Billete(10, 100));
+caja.push(new Billete(10, 50));
+caja.push(new Billete(10, 20));
+caja.push(new Billete(10, 10));
+caja.push(new Billete(10, 5));
+caja.push(new Billete(10, 1));
 
 
 // igualo la cantidad al principio para obtener un porcentaje basado en el punto cero
-graficoBillete.push(new Billete(4, 50));
-graficoBillete.push(new Billete(3, 20));
-graficoBillete.push(new Billete(2, 10));
+graficoBillete.push(new Billete(10, 100));
+graficoBillete.push(new Billete(10, 50));
+graficoBillete.push(new Billete(10, 20));
+graficoBillete.push(new Billete(10, 10));
+graficoBillete.push(new Billete(10, 5));
+graficoBillete.push(new Billete(10, 1));
 
 
 // Creo la variable para capturar el evento para cuando inicie el proceso
@@ -190,6 +199,11 @@ function dispensar()
                             var textoCompleto = texto +  porcentaje + texto_b + porcentaje + "%)"
 
                             // Asigno el nuevo valor al billete que se itera
+                            if(actual.valor == 100)
+                            {
+                                graph100.style.background = textoCompleto;
+                                console.log("actualizo 100");
+                            }
                             if(actual.valor == 50)
                             {
                                 graph50.style.background = textoCompleto;
@@ -204,6 +218,16 @@ function dispensar()
                             {
                                 graph10.style.background = textoCompleto;
                                 console.log("actualizo 10");
+                            }
+                            if(actual.valor == 5)
+                            {
+                                graph5.style.background = textoCompleto;
+                                console.log("actualizo 5");
+                            }
+                            if(actual.valor == 1)
+                            {
+                                graph1.style.background = textoCompleto;
+                                console.log("actualizo 1");
                             }
                         }
                     }
